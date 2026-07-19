@@ -1,8 +1,36 @@
 import "./Navbar.css";
 import { FaHandshake } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [reading, setReading] = useState(false);
+
+  const handleSpeech = () => {
+    if (reading) {
+      window.speechSynthesis.cancel();
+      setReading(false);
+      return;
+    }
+
+    const text =
+      document.getElementById("page-content")?.innerText ||
+      document.body.innerText;
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "en-US";
+    speech.rate = 1;
+    speech.pitch = 1;
+
+    speech.onend = () => {
+      setReading(false);
+    };
+
+    window.speechSynthesis.speak(speech);
+    setReading(true);
+  };
+
   const isLoggedIn = localStorage.getItem("token");
 
   return (
@@ -44,6 +72,17 @@ const Navbar = () => {
           >
             Activities
           </NavLink>
+        </li>
+
+        <li>
+          <button
+            className={`voice-btn ${
+              reading ? "voice-active" : ""
+            }`}
+            onClick={handleSpeech}
+          >
+            {reading ? "⏹ Reading..." : "🔊 Voice"}
+          </button>
         </li>
 
         <li>

@@ -105,3 +105,43 @@
 
   z-index: 999;
 }
+.navbar ul li {
+  display: flex;
+  align-items: center;
+}
+
+.voice-btn {
+  background: transparent;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 44px;
+  padding: 0 18px;
+
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+
+  color: #222;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.voice-btn:hover {
+  color: #6c63ff;
+}
+
+.voice-active {
+  background: linear-gradient(
+    135deg,
+    #6c63ff,
+    #8b7dff
+  );
+
+  color: white;
+  border-radius: 999px;
+  box-shadow: 0 5px 15px rgba(108, 99, 255, 0.25);
+}
