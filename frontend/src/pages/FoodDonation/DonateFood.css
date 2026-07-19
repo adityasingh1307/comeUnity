@@ -1,0 +1,324 @@
+/* ---------------- PAGE ---------------- */
+
+.donate-page {
+  min-height: calc(100vh - 80px);
+  background: #f8f3ec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 20px 50px;
+}
+
+/* ---------------- CARD ---------------- */
+
+.donate-card {
+  width: 100%;
+  max-width: 1050px;
+  background: #f4f4f2;
+
+  border-radius: 35px;
+
+  padding: 60px;
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.12),
+    0 0 25px rgba(157, 92, 229, 0.05);
+
+  animation: fadeUp 0.5s ease;
+}
+
+.donate-card h1 {
+  text-align: center;
+
+  font-size: 54px;
+  font-weight: 800;
+
+  color: #444;
+
+  margin-bottom: 50px;
+}
+
+/* ---------------- GRID ---------------- */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+
+  align-items: start;
+}
+
+/* ---------------- INPUTS ---------------- */
+
+.donate-card input,
+.donate-card select,
+.donate-card textarea {
+  width: 100%;
+
+  border: none;
+  border-radius: 22px;
+
+  background: white;
+
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.05);
+
+  color: #444;
+  font-size: 19px;
+
+  outline: none;
+
+  transition: all 0.3s ease;
+}
+
+/* Text Inputs */
+
+.donate-card input,
+.donate-card select {
+  height: 72px;
+  padding: 0 28px;
+}
+
+/* Textarea */
+
+.donate-card textarea {
+  min-height: 170px;
+
+  padding: 22px 28px;
+
+  resize: none;
+
+  margin-top: 25px;
+  margin-bottom: 25px;
+
+  line-height: 1.7;
+}
+
+/* Placeholder */
+
+.donate-card input::placeholder,
+.donate-card textarea::placeholder {
+  color: #888;
+  font-size: 19px;
+}
+
+/* Select */
+
+.donate-card select {
+  cursor: pointer;
+  appearance: none;
+}
+
+/* Focus */
+
+.donate-card input:focus,
+.donate-card select:focus,
+.donate-card textarea:focus {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(
+      157,
+      92,
+      229,
+      0.15
+    );
+}
+
+/* ---------------- BUTTON ---------------- */
+
+.donate-btn {
+  width: 100%;
+
+  margin-top: 10px;
+
+  border: none;
+
+  padding: 22px;
+
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d89cf4,
+      #9d5ce5
+    );
+
+  color: white;
+
+  font-size: 26px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 12px 25px rgba(
+      157,
+      92,
+      229,
+      0.25
+    );
+}
+
+.donate-btn:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 18px 35px rgba(
+      157,
+      92,
+      229,
+      0.35
+    );
+}
+
+/* ---------------- POPUP ---------------- */
+
+.popup-overlay {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background:
+    rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  backdrop-filter: blur(6px);
+
+  z-index: 999;
+}
+
+.popup-card {
+  width: 90%;
+  max-width: 520px;
+
+  background: white;
+
+  border-radius: 35px;
+
+  padding: 45px;
+
+  text-align: center;
+
+  box-shadow:
+    0 20px 40px rgba(
+      0,
+      0,
+      0,
+      0.18
+    );
+
+  animation: popup 0.3s ease;
+}
+
+.popup-icon {
+  font-size: 75px;
+  margin-bottom: 20px;
+}
+
+.popup-card h2 {
+  font-size: 34px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.popup-card p {
+  color: #666;
+  line-height: 1.8;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.popup-btn {
+  border: none;
+
+  padding: 18px 40px;
+
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d89cf4,
+      #9d5ce5
+    );
+
+  color: white;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.popup-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* ---------------- ANIMATIONS ---------------- */
+
+@keyframes popup {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 768px) {
+  .donate-card {
+    padding: 35px 25px;
+  }
+
+  .donate-card h1 {
+    font-size: 40px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .donate-card input,
+  .donate-card select {
+    height: 65px;
+    font-size: 17px;
+  }
+
+  .donate-card textarea {
+    font-size: 17px;
+  }
+
+  .donate-btn {
+    font-size: 22px;
+  }
+}

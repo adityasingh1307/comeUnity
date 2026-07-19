@@ -1,0 +1,259 @@
+.ngoPage{
+    min-height:100vh;
+    background:#f8f3ec;
+    padding:120px 20px 50px;
+}
+
+/* HERO */
+
+.heroSection{
+    text-align:center;
+    margin-bottom:50px;
+    animation:fadeIn 1s;
+}
+
+.heroSection h1{
+    font-size:52px;
+    color:#333;
+    margin-bottom:15px;
+}
+
+.heroSection p{
+    color:#777;
+    font-size:19px;
+}
+
+/* SEARCH */
+
+.searchContainer{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:40px;
+}
+
+.searchContainer input{
+    width:400px;
+    padding:18px;
+    border:none;
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,.1);
+    font-size:16px;
+}
+
+.searchContainer button{
+    background:#8b5cf6;
+    color:white;
+    border:none;
+    padding:18px 35px;
+    border-radius:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.searchContainer button:hover{
+    transform:translateY(-3px);
+}
+
+/* POPULAR */
+
+.popularTitle{
+    text-align:center;
+    color:#555;
+    margin-bottom:20px;
+}
+
+.popularCities{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+}
+
+.popularCities button{
+    border:none;
+    background:white;
+    padding:12px 25px;
+    border-radius:30px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.popularCities button:hover{
+    background:#8b5cf6;
+    color:white;
+}
+
+/* WELCOME CARD */
+
+.welcomeCard{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    border-radius:30px;
+    padding:50px;
+    text-align:center;
+    box-shadow:0 15px 30px rgba(0,0,0,.1);
+    animation:float 4s infinite;
+}
+
+.welcomeCard h2{
+    color:#8b5cf6;
+    margin-bottom:20px;
+}
+
+.welcomeCard p{
+    color:#666;
+    line-height:1.8;
+}
+
+/* LOADING */
+
+.loadingCard{
+    max-width:500px;
+    margin:50px auto;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 15px 30px rgba(0,0,0,.1);
+}
+
+.spinner{
+    width:70px;
+    height:70px;
+    border:6px solid #eee;
+    border-top:6px solid #8b5cf6;
+    border-radius:50%;
+    margin:auto;
+    animation:spin 1s linear infinite;
+}
+
+.loadingCard h2{
+    margin-top:25px;
+    color:#333;
+}
+
+.loadingCard p{
+    color:#777;
+}
+
+/* NGO CARDS */
+
+.ngoGrid{
+    display:grid;
+    grid-template-columns:
+      repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+    margin-top:50px;
+}
+
+.ngoCard{
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 15px 30px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.ngoCard:hover{
+    transform:translateY(-10px);
+}
+
+.ngoCard h2{
+    color:#8b5cf6;
+    margin-bottom:20px;
+}
+
+.ngoCard p{
+    margin-bottom:10px;
+    color:#555;
+}
+
+.ngoCard a{
+    display:block;
+    margin:20px 0;
+    color:#2563eb;
+    text-decoration:none;
+}
+
+.ngoCard button{
+    width:100%;
+    background:#8b5cf6;
+    color:white;
+    border:none;
+    padding:15px;
+    border-radius:15px;
+    cursor:pointer;
+}
+
+/* POPUP */
+
+.popupOverlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.popupCard{
+    width:350px;
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    text-align:center;
+    animation:fadeIn .4s;
+}
+
+.popupEmoji{
+    font-size:60px;
+}
+
+.popupCard h2{
+    margin:20px 0;
+}
+
+.popupCard button{
+    margin-top:20px;
+    background:#8b5cf6;
+    color:white;
+    border:none;
+    padding:12px 30px;
+    border-radius:15px;
+    cursor:pointer;
+}
+
+/* ANIMATIONS */
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}

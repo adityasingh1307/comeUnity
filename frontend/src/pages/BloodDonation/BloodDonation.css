@@ -1,0 +1,287 @@
+/* PAGE */
+
+.blood-page {
+  min-height: calc(100vh - 80px);
+  background: #f5f2ed;
+  padding: 120px 20px 50px;
+}
+
+/* CARD */
+
+.blood-card {
+  max-width: 1200px;
+  margin: auto;
+
+  background: #faf9f6;
+
+  padding: 50px;
+
+  border-radius: 35px;
+
+  box-shadow:
+    0 15px 35px
+    rgba(0, 0, 0, 0.12);
+}
+
+/* HEADING */
+
+.blood-card h1 {
+  text-align: center;
+
+  font-size: 3.5rem;
+
+  color: #444;
+
+  margin-bottom: 10px;
+}
+
+.blood-subtitle {
+  text-align: center;
+
+  color: #777;
+
+  font-size: 1.15rem;
+
+  margin-bottom: 50px;
+}
+
+/* STATS */
+
+.stats-container {
+  display: flex;
+
+  gap: 25px;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 50px;
+}
+
+.stat-box {
+  flex: 1;
+
+  min-width: 250px;
+
+  max-width: 320px;
+
+  background: white;
+
+  border-radius: 25px;
+
+  padding: 30px;
+
+  text-align: center;
+
+  box-shadow:
+    0 8px 20px
+    rgba(0, 0, 0, 0.08);
+
+  transition: 0.3s;
+}
+
+.stat-box:hover {
+  transform:
+    translateY(-6px);
+}
+
+.stat-box h2 {
+  color: #e63946;
+
+  font-size: 2.5rem;
+
+  margin-bottom: 10px;
+}
+
+.stat-box p {
+  color: #666;
+
+  line-height: 1.5;
+}
+
+/* MOTIVATION */
+
+.motivation-card {
+  padding: 40px;
+
+  margin-bottom: 50px;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff0f4,
+      #fff8fb
+    );
+
+  text-align: center;
+
+  box-shadow:
+    0 10px 25px
+    rgba(0, 0, 0, 0.08);
+}
+
+.motivation-card h2 {
+  color: #e63946;
+
+  margin-bottom: 20px;
+
+  font-size: 2rem;
+}
+
+.motivation-card p {
+  max-width: 800px;
+
+  margin: auto;
+
+  color: #666;
+
+  line-height: 1.9;
+
+  font-size: 1.05rem;
+}
+
+.motivation-card span {
+  display: block;
+
+  margin-top: 25px;
+
+  font-size: 1.2rem;
+
+  font-weight: 700;
+
+  color: #444;
+}
+
+/* GRID */
+
+.blood-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(260px, 1fr)
+    );
+
+  gap: 25px;
+}
+
+/* BUTTONS */
+
+.blood-btn {
+  border: none;
+
+  background: white;
+
+  border-radius: 25px;
+
+  min-height: 220px;
+
+  padding: 35px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 15px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+  box-shadow:
+    0 10px 25px
+    rgba(0, 0, 0, 0.08);
+}
+
+.blood-btn:hover {
+  transform:
+    translateY(-8px);
+
+  box-shadow:
+    0 20px 35px
+    rgba(0, 0, 0, 0.12);
+}
+
+.icon {
+  font-size: 55px;
+}
+
+.blood-btn span {
+  font-size: 1.3rem;
+
+  font-weight: 700;
+
+  color: #444;
+}
+
+/* COLORS */
+
+.blood-btn:nth-child(1) {
+  border-top:
+    7px solid #ff4d6d;
+}
+
+.blood-btn:nth-child(2) {
+  border-top:
+    7px solid #f77f00;
+}
+
+.blood-btn:nth-child(3) {
+  border-top:
+    7px solid #4895ef;
+}
+
+.blood-btn:nth-child(4) {
+  border-top:
+    7px solid #9d4edd;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .blood-card {
+    padding: 30px;
+  }
+
+  .blood-card h1 {
+    font-size: 2.5rem;
+  }
+
+  .stats-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-box {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .motivation-card {
+    padding: 25px;
+  }
+
+  .motivation-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .blood-btn {
+    min-height: 180px;
+  }
+
+  .blood-btn span {
+    font-size: 1.1rem;
+  }
+
+  .icon {
+    font-size: 45px;
+  }
+}

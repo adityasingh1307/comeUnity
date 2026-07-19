@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+.register-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding-top: 120px;
+    padding-bottom: 50px;
+
+    background:
+    radial-gradient(
+        circle at top right,
+        #FFF0D8,
+        transparent 35%
+    ),
+
+    radial-gradient(
+        circle at bottom left,
+        #FFF7EA,
+        transparent 30%
+    ),
+
+    #FFFDF9;
+}
+
+.register-card{
+
+    width:700px;
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:40px;
+
+    box-shadow:
+    0 15px 40px
+    rgba(0,0,0,.10);
+}
+
+.register-card h1{
+
+    text-align:center;
+
+    color:#394466;
+
+    font-size:58px;
+
+    margin-bottom:5px;
+}
+
+.register-card p{
+
+    text-align:center;
+
+    font-size:20px;
+
+    color:#444;
+
+    margin-bottom:30px;
+}
+
+/* FORM */
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:18px;
+}
+
+.input-group label{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:#24304D;
+}
+
+.input-box{
+
+    display:flex;
+
+    align-items:center;
+
+    height:48px;
+
+    background:#EEF2FF;
+
+    border:1px solid #D9DFF5;
+
+    border-radius:10px;
+
+    padding:0 12px;
+}
+
+.input-box svg{
+
+    margin-right:10px;
+
+    color:#555;
+}
+
+.input-box input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:16px;
+}
+
+select{
+
+    width:100%;
+
+    height:48px;
+
+    border:none;
+
+    outline:none;
+
+    background:#EEF2FF;
+
+    border:1px solid #D9DFF5;
+
+    border-radius:10px;
+
+    padding:0 12px;
+
+    font-size:16px;
+}
+
+.skills{
+
+    display:flex;
+
+    gap:8px;
+}
+
+.skills button{
+
+    border:none;
+
+    padding:10px 14px;
+
+    border-radius:8px;
+
+    background:#EEF2FF;
+
+    color:#555;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.skills button:hover{
+
+    background:#DCE5FF;
+}
+
+/* TERMS */
+
+.terms{
+
+    margin-top:20px;
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    font-size:14px;
+}
+
+.terms span{
+
+    color:#555;
+}
+
+/* BUTTON */
+
+.create-btn{
+
+    width:100%;
+
+    margin-top:25px;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:40px;
+
+    background:
+    linear-gradient(
+    to right,
+    #62A8DA,
+    #4592D5
+    );
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.create-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 10px 20px
+    rgba(0,0,0,.12);
+}
+
+/* SOCIALS */
+
+.socials{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-top:25px;
+}
+
+.socials button{
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    background:white;
+
+    border-radius:12px;
+
+    border:1px solid #DDD;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.socials button:hover{
+
+    transform:scale(1.05);
+}
+
+/* LOGIN */
+
+.login-link{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    font-size:15px;
+}
+
+.login-link span{
+
+    color:#4A90D3;
+
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+.footer{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    color:#666;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .register-card{
+
+        width:95%;
+    }
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .register-card h1{
+
+        font-size:42px;
+    }
+
+    .skills{
+
+        flex-wrap:wrap;
+    }
+}
+.create-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        rgba(0,0,0,0.45);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.success-modal {
+    width: 500px;
+
+    background: white;
+
+    border-radius: 30px;
+
+    padding: 50px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.2);
+
+    animation:
+        popIn 0.3s ease;
+}
+
+.success-icon {
+    font-size: 80px;
+
+    margin-bottom: 20px;
+}
+
+.success-modal h2 {
+    font-size: 36px;
+
+    margin-bottom: 15px;
+
+    color: #4A90D3;
+}
+
+.success-modal p {
+    color: #666;
+
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+}
+
+.success-modal button {
+    width: 100%;
+    height: 60px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #4A90D3;
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+@keyframes popIn {
+    from {
+        transform:
+            scale(0.8);
+
+        opacity: 0;
+    }
+
+    to {
+        transform:
+            scale(1);
+
+        opacity: 1;
+    }
+}

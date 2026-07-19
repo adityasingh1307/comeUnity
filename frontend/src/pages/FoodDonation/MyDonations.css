@@ -1,0 +1,358 @@
+/* ---------------- Page ---------------- */
+
+.myDonationPage {
+  min-height: calc(100vh - 80px);
+  background: #f8f3ec;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.myDonationContainer {
+  width: 95%;
+  max-width: 1100px;
+  background: #fff;
+  border-radius: 25px;
+  padding: 40px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+/* ---------------- Header ---------------- */
+
+.pageHeader{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.pageHeader h1{
+    font-size:40px;
+    color:#333;
+    margin-bottom:10px;
+}
+
+.pageHeader p{
+    color:#777;
+    font-size:18px;
+}
+
+/* ---------------- Stats ---------------- */
+
+.statsContainer{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin-bottom:45px;
+    flex-wrap:wrap;
+}
+
+.statCard{
+    flex:1;
+    min-width:220px;
+    background:linear-gradient(135deg,#8b5cf6,#c084fc);
+    color:white;
+    border-radius:22px;
+    padding:30px;
+    text-align:center;
+    transition:.3s;
+    box-shadow:0 12px 25px rgba(139,92,246,.25);
+}
+
+.submittedCard{
+    background:linear-gradient(135deg,#ff9800,#ffb74d);
+}
+
+.completedCard{
+    background:linear-gradient(135deg,#22c55e,#4ade80);
+}
+
+.statCard:hover{
+    transform:translateY(-8px);
+}
+
+.statCard svg{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.statCard h2{
+    font-size:40px;
+    margin-bottom:8px;
+}
+
+.statCard span{
+    font-size:18px;
+    font-weight:600;
+}
+
+/* ---------------- Donation Cards ---------------- */
+
+.donationList{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.donationCard{
+    background:white;
+    border-radius:20px;
+    padding:28px;
+    border-left:8px solid #8b5cf6;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.donationCard:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+.cardTop{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.foodTitle{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.foodTitle svg{
+    color:#8b5cf6;
+    font-size:28px;
+}
+
+.foodTitle h3{
+    font-size:26px;
+    color:#333;
+}
+
+.status{
+    padding:8px 20px;
+    border-radius:30px;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.status.submitted{
+    background:#fff4e5;
+    color:#ff9800;
+}
+
+.status.completed{
+    background:#e8f8ed;
+    color:#16a34a;
+}
+
+.status.rejected{
+    background:#fdecec;
+    color:#ef4444;
+}
+
+.cardInfo{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.cardInfo p{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#555;
+    font-size:18px;
+}
+
+.cardInfo svg{
+    color:#8b5cf6;
+    font-size:18px;
+}
+
+.cardInfo strong{
+    margin-left:5px;
+    color:#222;
+}
+
+/* ---------------- Button ---------------- */
+
+.detailsBtn{
+    background:#8b5cf6;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.detailsBtn:hover{
+    background:#6d28d9;
+}
+
+/* ---------------- Empty State ---------------- */
+
+.emptyState{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:70px 20px;
+}
+
+.emptyIcon{
+    font-size:120px;
+    color:#c084fc;
+    margin-bottom:25px;
+}
+
+.emptyState h2{
+    color:#333;
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.emptyState p{
+    color:#777;
+    max-width:450px;
+    line-height:1.7;
+    margin-bottom:30px;
+    font-size:18px;
+}
+
+.emptyState button{
+    background:#8b5cf6;
+    color:white;
+    border:none;
+    padding:15px 35px;
+    border-radius:35px;
+    cursor:pointer;
+    font-size:17px;
+    transition:.3s;
+}
+
+.emptyState button:hover{
+    background:#6d28d9;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media(max-width:768px){
+
+    .myDonationContainer{
+        padding:25px;
+    }
+
+    .pageHeader h1{
+        font-size:32px;
+    }
+
+    .cardTop{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .foodTitle h3{
+        font-size:22px;
+    }
+
+    .cardInfo{
+        grid-template-columns:1fr;
+    }
+
+    .statCard{
+        min-width:100%;
+    }
+
+}
+/* ---------- Modal ---------- */
+
+.modalOverlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;   /* Start from the top instead of centering */
+    padding-top:100px;        /* Push the modal below the navbar */
+    z-index:999;
+    animation:fadeIn .25s ease;
+    overflow-y:auto;          /* Allows scrolling if needed */
+}
+
+.modalCard{
+    width:90%;
+    max-width:550px;      /* Reduced from 650px */
+    max-height:80vh;      /* Prevents it from exceeding the screen */
+    overflow-y:auto;      /* Enables scrolling if needed */
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 20px 50px rgba(0,0,0,.2);
+    animation:popup .3s ease;
+     margin-bottom:30px;
+}
+
+.modalCard h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#8b5cf6;
+    font-size:28px;
+}
+
+.modalContent{
+    display:grid;
+    gap:10px;
+}
+
+.modalContent p{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:8px 0;
+    border-bottom:1px solid #eee;
+    color:#444;
+    font-size:15px;
+}
+
+.closeModalBtn{
+    width:100%;
+    margin-top:30px;
+    padding:14px;
+    background:#8b5cf6;
+    color:white;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.closeModalBtn:hover{
+    background:#6d28d9;
+}
+
+@keyframes popup{
+    from{
+        transform:scale(.9);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}

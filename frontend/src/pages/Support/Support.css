@@ -1,0 +1,68 @@
+.support-container {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  padding-top: 100px;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  background: #f5f2ed;
+}
+
+.support-card {
+  width: 700px;
+  background: white;
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.support-card h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.support-quote {
+  font-size: 22px;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.support-section {
+  margin-bottom: 30px;
+}
+
+.support-section h3 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.support-section p {
+  font-size: 19px;
+  color: #666;
+  line-height: 1.8;
+}
+
+.support-section ul {
+  margin-left: 25px;
+}
+
+.support-section li {
+  font-size: 19px;
+  color: #666;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .support-card {
+    width: 90%;
+    padding: 30px;
+  }
+
+  .support-card h1 {
+    font-size: 38px;
+  }
+}

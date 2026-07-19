@@ -1,0 +1,209 @@
+.login-card{
+
+width:560px;
+
+
+
+background:white;
+
+padding:50px;
+margin-top:50px;
+border-radius:50px;
+
+box-shadow:
+
+0 15px 40px rgba(0,0,0,.12);
+
+backdrop-filter:blur(12px);
+}
+
+.login-card h1{
+
+font-size:50px;
+
+font-weight:700;
+
+text-align:center;
+
+color:#394466;
+
+margin-bottom:5px;
+}
+
+.login-card p{
+
+text-align:center;
+
+margin-bottom:45px;
+
+font-size:22px;
+}
+
+.field{
+
+margin-bottom:25px;
+}
+
+.field label{
+
+display:block;
+
+font-weight:600;
+
+margin-bottom:8px;
+}
+
+.password-row{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:8px;
+}
+
+.password-row a{
+
+color:#3d8cc8;
+
+text-decoration:none;
+}
+
+.input-box{
+
+display:flex;
+
+align-items:center;
+
+border:1px solid #d7d7d7;
+
+border-radius:10px;
+
+padding:12px 15px;
+
+background:#eef3ff;
+}
+
+.input-box svg{
+
+margin-right:10px;
+
+color:#777;
+}
+
+.input-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 17px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  color: #333;
+}
+
+.error{
+
+border:2px solid #df4a4a;
+}
+
+.field span{
+
+color:#d23f3f;
+
+font-size:14px;
+}
+
+.remember{
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
+margin-bottom:30px;
+}
+
+.login-btn{
+
+width:100%;
+
+border:none;
+
+padding:16px;
+
+border-radius:40px;
+
+font-size:20px;
+
+font-weight:600;
+
+cursor:pointer;
+
+color:white;
+
+background:linear-gradient(90deg,#62a8da,#3b8fd8);
+
+transition:.3s;
+}
+
+.login-btn:hover{
+
+transform:translateY(-2px);
+
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+
+.socials{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+margin:30px 0;
+}
+
+.socials button{
+
+width:55px;
+
+height:55px;
+
+border-radius:12px;
+
+border:1px solid #ddd;
+
+background:white;
+
+cursor:pointer;
+
+font-size:22px;
+
+transition:.3s;
+}
+
+.socials button:hover{
+
+transform:scale(1.08);
+}
+
+.register{
+padding-top:10px;
+text-align:center;
+}
+
+.register a{
+
+
+margin-left:5px;
+
+color:#3d8cc8;
+
+text-decoration:none;
+}

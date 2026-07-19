@@ -1,0 +1,129 @@
+/* -------------------- Dashboard Page -------------------- */
+
+.dashboard-page {
+  min-height: calc(100vh - 80px);
+  background: #f8f3ec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 20px 40px;
+}
+
+/* -------------------- Main Card -------------------- */
+
+.dashboard-card {
+  width: 100%;
+  max-width: 1000px;
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 50px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* -------------------- Heading -------------------- */
+
+.dashboard-card h1 {
+  font-size: 45px;
+  color: #444;
+  margin-bottom: 50px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* -------------------- Button Grid -------------------- */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+  margin-bottom: 40px;
+}
+
+/* -------------------- Dashboard Buttons -------------------- */
+
+.dash-btn {
+  background: #d89cf4;
+  color: #444;
+  border: none;
+  border-radius: 40px;
+  padding: 18px 25px;
+  font-size: 28px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 8px 20px rgba(216, 156, 244, 0.4);
+}
+
+.dash-btn:hover {
+  background: #c978ef;
+  transform: translateY(-4px);
+}
+
+.dash-btn:active {
+  transform: scale(0.98);
+}
+
+/* -------------------- Profile Button -------------------- */
+
+.profile-btn {
+  background: #d89cf4;
+  color: #444;
+  border: none;
+  border-radius: 40px;
+  padding: 18px 40px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 8px 20px rgba(216, 156, 244, 0.4);
+}
+
+.profile-btn:hover {
+  background: #c978ef;
+  transform: translateY(-4px);
+}
+
+.profile-btn:active {
+  transform: scale(0.98);
+}
+
+/* -------------------- Responsive -------------------- */
+
+@media (max-width: 900px) {
+  .dashboard-card {
+    padding: 35px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card h1 {
+    font-size: 34px;
+  }
+
+  .dash-btn,
+  .profile-btn {
+    font-size: 24px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-card {
+    padding: 25px;
+    border-radius: 20px;
+  }
+
+  .dashboard-card h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .dash-btn,
+  .profile-btn {
+    font-size: 20px;
+    border-radius: 25px;
+  }
+}
