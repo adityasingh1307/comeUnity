@@ -1,9 +1,6 @@
 require("dotenv").config();
 
-console.log(
-  "GROQ:",
-  process.env.GROQ_API_KEY
-);
+
 
 const express = require("express");
 const cors = require("cors");
@@ -15,8 +12,8 @@ const authRoutes = require(
   "./routes/authRoutes"
 );
 
-const foodRoutes = require(
-  "./routes/foodRoutes"
+const foodroutes = require(
+  "./routes/foodroutes"
 );
 
 const ngoRoutes = require(
@@ -58,7 +55,7 @@ app.use(
 
 app.use(
   "/api/food",
-  foodRoutes
+  foodroutes
 );
 
 app.use(
