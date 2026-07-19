@@ -84,3 +84,24 @@
   border-bottom: 2px solid #E76F51;
   padding-bottom: 5px;
 }
+.ai-float {
+  position: fixed;
+
+  bottom: 30px;
+  right: 30px;
+
+  width: 65px;
+  height: 65px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: #6b4f3b;
+  color: white;
+
+  font-size: 24px;
+
+  cursor: pointer;
+
+  z-index: 999;
+}

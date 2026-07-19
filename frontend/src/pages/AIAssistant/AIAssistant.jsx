@@ -2,8 +2,15 @@ import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
 import "./AIAssistant.css";
+import { Navigate } from "react-router-dom";
+
 
 export default function AIAssistant() {
+  const token = localStorage.getItem("token");
+
+if (!token) {
+  return <Navigate to="/login" />;
+}
   const bottomRef = useRef(null);
 
   const [input, setInput] = useState("");

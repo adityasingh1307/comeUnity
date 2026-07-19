@@ -67,7 +67,7 @@ export default function BloodDonation() {
               </div>
 
               <span>
-                Available Donors
+                Donate Blood
               </span>
             </button>
 

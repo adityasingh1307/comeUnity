@@ -3,10 +3,23 @@
 .dashboard-page {
   min-height: calc(100vh - 80px);
   background: #f8f3ec;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   padding: 120px 20px 40px;
+
+  animation: bgMove 8s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove {
+  from {
+    background: #f8f3ec;
+  }
+  to {
+    background: #f5efe7;
+  }
 }
 
 /* -------------------- Main Card -------------------- */
@@ -14,11 +27,28 @@
 .dashboard-card {
   width: 100%;
   max-width: 1000px;
+
   background: #ffffff;
   border-radius: 30px;
   padding: 50px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+
   text-align: center;
+
+  animation: fadeUp 0.8s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* -------------------- Heading -------------------- */
@@ -29,9 +59,23 @@
   margin-bottom: 50px;
   font-weight: bold;
   letter-spacing: 1px;
+
+  animation: slideDown 0.7s ease;
 }
 
-/* -------------------- Button Grid -------------------- */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -------------------- Grid -------------------- */
 
 .dashboard-grid {
   display: grid;
@@ -45,23 +89,83 @@
 .dash-btn {
   background: #d89cf4;
   color: #444;
+
   border: none;
   border-radius: 40px;
+
   padding: 18px 25px;
+
   font-size: 28px;
   font-weight: 700;
+
   cursor: pointer;
-  transition: 0.3s ease;
+
+  transition: all 0.3s ease;
+
   box-shadow: 0 8px 20px rgba(216, 156, 244, 0.4);
+
+  opacity: 0;
+
+  animation: popUp 0.7s ease forwards,
+    glow 3s ease-in-out infinite;
 }
+
+/* Sequential Appearance */
+
+.dash-btn:nth-child(1) {
+  animation-delay: 0.1s, 1s;
+}
+
+.dash-btn:nth-child(2) {
+  animation-delay: 0.2s, 1s;
+}
+
+.dash-btn:nth-child(3) {
+  animation-delay: 0.3s, 1s;
+}
+
+.dash-btn:nth-child(4) {
+  animation-delay: 0.4s, 1s;
+}
+
+@keyframes popUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 8px 20px rgba(216, 156, 244, 0.35);
+  }
+
+  50% {
+    box-shadow: 0 12px 28px rgba(216, 156, 244, 0.55);
+  }
+
+  100% {
+    box-shadow: 0 8px 20px rgba(216, 156, 244, 0.35);
+  }
+}
+
+/* Hover Effects */
 
 .dash-btn:hover {
   background: #c978ef;
-  transform: translateY(-4px);
+
+  transform: translateY(-6px) scale(1.03);
+
+  box-shadow: 0 16px 32px rgba(216, 156, 244, 0.55);
 }
 
 .dash-btn:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 /* -------------------- Profile Button -------------------- */
@@ -69,23 +173,39 @@
 .profile-btn {
   background: #d89cf4;
   color: #444;
+
   border: none;
   border-radius: 40px;
+
   padding: 18px 40px;
+
   font-size: 30px;
   font-weight: bold;
+
   cursor: pointer;
-  transition: 0.3s ease;
+
+  transition: all 0.3s ease;
+
   box-shadow: 0 8px 20px rgba(216, 156, 244, 0.4);
+
+  opacity: 0;
+
+  animation: popUp 0.7s ease forwards,
+    glow 3s ease-in-out infinite;
+
+  animation-delay: 0.5s, 1s;
 }
 
 .profile-btn:hover {
   background: #c978ef;
-  transform: translateY(-4px);
+
+  transform: translateY(-6px) scale(1.03);
+
+  box-shadow: 0 16px 32px rgba(216, 156, 244, 0.55);
 }
 
 .profile-btn:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 /* -------------------- Responsive -------------------- */

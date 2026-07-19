@@ -1,8 +1,8 @@
 import "./Navbar.css";
 import { FaHandshake } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-
 const Navbar = () => {
+  const isLoggedIn = localStorage.getItem("token");
   return (
     <nav className="navbar">
       <div className="logo">
@@ -10,7 +10,18 @@ const Navbar = () => {
         <h2>COMEUNITY</h2>
       </div>
 
-    <ul>
+   <ul>
+  <li>
+    <NavLink
+      to="/login"
+      className={({ isActive }) =>
+        isActive ? "nav-link active-link" : "nav-link"
+      }
+    >
+      Login
+    </NavLink>
+  </li>
+
   <li>
     <NavLink
       to="/about"
@@ -55,16 +66,20 @@ const Navbar = () => {
     </NavLink>
   </li>
 
+  {isLoggedIn && (
   <li>
     <NavLink
-      to="/login"
+      to="/ai-assistant"
       className={({ isActive }) =>
-        isActive ? "nav-link active-link" : "nav-link"
+        isActive
+          ? "nav-link active-link"
+          : "nav-link"
       }
     >
-      Login
+      Ask AI 🤖
     </NavLink>
   </li>
+)}
 </ul>
     </nav>
   );
