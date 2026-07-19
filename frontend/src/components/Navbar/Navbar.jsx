@@ -1,10 +1,12 @@
 import "./Navbar.css";
 import { FaHandshake } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const [reading, setReading] = useState(false);
+  const [menuOpen, setMenuOpen] =
+  useState(false);
 
   const handleSpeech = () => {
     if (reading) {
@@ -33,24 +35,48 @@ const Navbar = () => {
 
   const isLoggedIn = localStorage.getItem("token");
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/login";
+  };
+
   return (
     <nav className="navbar">
-      <div className="logo">
-        <FaHandshake className="logo-icon" />
-        <h2>COMEUNITY</h2>
-      </div>
+     <div className="logo">
+  <FaHandshake
+    className="logo-icon"
+  />
 
-      <ul>
-        <li>
-          <NavLink
-            to="/login"
-            className={({ isActive }) =>
-              isActive ? "nav-link active-link" : "nav-link"
-            }
-          >
-            Login
-          </NavLink>
-        </li>
+  <h2>ComeUnity</h2>
+
+  <button
+    className="hamburger"
+    onClick={() =>
+      setMenuOpen(!menuOpen)
+    }
+  >
+    ☰
+  </button>
+</div>
+
+     <ul
+  className={`nav-menu ${
+    menuOpen ? "open" : ""
+  }`}
+>
+        {/* Show Login only when logged out */}
+        {!isLoggedIn && (
+          <li>
+            <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                isActive ? "nav-link active-link" : "nav-link"
+              }
+            >
+              Login
+            </NavLink>
+          </li>
+        )}
 
         <li>
           <NavLink
@@ -107,15 +133,14 @@ const Navbar = () => {
           </NavLink>
         </li>
 
+        {/* Logged In Links */}
         {isLoggedIn && (
           <>
             <li>
               <NavLink
                 to="/dashboard"
                 className={({ isActive }) =>
-                  isActive
-                    ? "nav-link active-link"
-                    : "nav-link"
+                  isActive ? "nav-link active-link" : "nav-link"
                 }
               >
                 Dashboard
@@ -126,13 +151,20 @@ const Navbar = () => {
               <NavLink
                 to="/ai-assistant"
                 className={({ isActive }) =>
-                  isActive
-                    ? "nav-link active-link"
-                    : "nav-link"
+                  isActive ? "nav-link active-link" : "nav-link"
                 }
               >
                 Ask AI 🤖
               </NavLink>
+            </li>
+
+            <li>
+              <button
+                className="logout-btn"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
             </li>
           </>
         )}

@@ -24,25 +24,31 @@ export default function Login() {
       }
     );
 
+    console.log(response.data);
+
     // Store token
     localStorage.setItem(
       "token",
       response.data.token
     );
 
-    // Store user data
+    // Store user object
     localStorage.setItem(
       "user",
       JSON.stringify(response.data.user)
     );
 
-    // Redirect directly
-    navigate("/dashboard");
+    // Store user ID
+    localStorage.setItem(
+      "userId",
+      response.data.user._id
+    );
 
+    navigate("/dashboard");
   } catch (error) {
     alert(
       error.response?.data?.message ||
-      "Invalid Credentials"
+        "Invalid Credentials"
     );
   }
 };

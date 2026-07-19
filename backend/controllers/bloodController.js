@@ -1,16 +1,34 @@
 const BloodDonor = require("../models/BloodDonor");
+const BloodContribution = require(
+  "../models/BloodContribution"
+);
 
 exports.registerDonor = async (req, res) => {
   try {
     console.log("BODY:", req.body);
 
-    const donor = await BloodDonor.create(req.body);
+    // Save donor in donor network
+    const donor = await BloodDonor.create(
+      req.body
+    );
+
+    // Save contribution history
+    await BloodContribution.create({
+      userId: req.body.userId,
+      hospital:
+        req.body.hospital ||
+        "Community Blood Drive",
+      bloodGroup: req.body.bloodGroup,
+      points: 100,
+      status: "Completed",
+    });
 
     console.log("SUCCESS:", donor);
 
     res.status(201).json({
       success: true,
-      message: "Donor registered successfully.",
+      message:
+        "Donor registered successfully.",
       donor,
     });
   } catch (err) {
@@ -21,12 +39,12 @@ exports.registerDonor = async (req, res) => {
       message: err.message,
     });
   }
-
 };
 
 exports.searchDonors = async (req, res) => {
   try {
-    const { bloodGroup, city } = req.query;
+    const { bloodGroup, city } =
+      req.query;
 
     let query = {
       available: true,
@@ -43,7 +61,8 @@ exports.searchDonors = async (req, res) => {
       };
     }
 
-    const donors = await BloodDonor.find(query);
+    const donors =
+      await BloodDonor.find(query);
 
     res.json({
       success: true,
@@ -55,5 +74,4 @@ exports.searchDonors = async (req, res) => {
       message: err.message,
     });
   }
-
 };

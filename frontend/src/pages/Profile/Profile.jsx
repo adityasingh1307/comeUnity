@@ -18,6 +18,11 @@ export default function Profile() {
   const [showModal, setShowModal] =
   useState(false);
   
+  const [stats, setStats] = useState({
+  bloodDonations: 0,
+  livesSaved: 0,
+});
+
   const [showSuccess, setShowSuccess] =
   useState(false);
 
@@ -29,32 +34,48 @@ export default function Profile() {
       phone: "",
       address: "",
       bloodGroup: "",
+     
     });
 
-  useEffect(() => {
-    fetchProfile();
-  }, []);
+useEffect(() => {
+  fetchProfile();
+}, []);
 
-  const fetchProfile = async () => {
-    try {
-      const token =
-        localStorage.getItem("token");
+const fetchProfile = async () => {
+  try {
+    const token = localStorage.getItem("token");
+    const userId =
+      localStorage.getItem("userId");
 
-      const response =
-        await axios.get(
-          "http://localhost:5000/api/users/profile",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+    // Fetch user profile
+    const response = await axios.get(
+      "http://localhost:5000/api/users/profile",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
-      setUser(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    setUser(response.data);
+
+    // Fetch blood contribution stats
+    const bloodResponse =
+      await axios.get(
+        `http://localhost:5000/api/blood-contributions/${userId}`
+      );
+
+    setStats({
+      bloodDonations:
+        bloodResponse.data.donations || 0,
+
+      livesSaved:
+        bloodResponse.data.livesSaved || 0,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
   const handleUpdateProfile =
     async () => {
@@ -178,41 +199,33 @@ setTimeout(() => {
 
           {/* STATS */}
 
-          <div className="stats-grid">
-            <div className="stat-card">
-              <h2>
-                {
-                  user.foodDonations
-                }
-              </h2>
+         {/* STATS */}
 
-              <p>
-                Food Donations
-              </p>
-            </div>
+<div className="stats-grid">
+  <div className="stat-card">
+    <h2>
+      {user.foodDonations || 0}
+    </h2>
 
-            <div className="stat-card">
-              <h2>
-                {
-                  user.bloodDonations
-                }
-              </h2>
+    <p>Food Donations</p>
+  </div>
 
-              <p>
-                Blood Donations
-              </p>
-            </div>
+  <div className="stat-card">
+    <h2>
+      {stats.bloodDonations}
+    </h2>
 
-            <div className="stat-card">
-              <h2>
-                {user.livesSaved}
-              </h2>
+    <p>Blood Donations</p>
+  </div>
 
-              <p>
-                Lives Saved
-              </p>
-            </div>
-          </div>
+  <div className="stat-card">
+    <h2>
+      {stats.livesSaved}
+    </h2>
+
+    <p>Lives Saved</p>
+  </div>
+</div>
 
           {/* ACCOUNT */}
 

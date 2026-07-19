@@ -1,9 +1,74 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Dashboard.css";
 
 export default function Dashboard() {
   const navigate = useNavigate();
+
+  const [user, setUser] = useState({});
+  const [stats, setStats] = useState({
+    foodDonations: 0,
+    bloodDonations: 0,
+    livesSaved: 0,
+  });
+
+  useEffect(() => {
+    const fetchDashboard = async () => {
+      try {
+        const token = localStorage.getItem(
+          "token"
+        );
+
+        const userId =
+          localStorage.getItem("userId");
+
+        // User Profile
+        const userRes = await axios.get(
+          "http://localhost:5000/api/users/profile",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        // Food Donations
+        const foodRes = await axios.get(
+          "http://localhost:5000/api/food/my-donations",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        // Blood Donations
+        const bloodRes = await axios.get(
+          `http://localhost:5000/api/blood-contributions/${userId}`
+        );
+
+        setUser(userRes.data);
+
+        setStats({
+          foodDonations:
+            foodRes.data.donations.length ||
+            0,
+
+          bloodDonations:
+            bloodRes.data.donations || 0,
+
+          livesSaved:
+            bloodRes.data.livesSaved || 0,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchDashboard();
+  }, []);
 
   return (
     <>
@@ -11,51 +76,126 @@ export default function Dashboard() {
 
       <div className="dashboard-page">
         <div className="dashboard-card">
+          {/* HERO */}
 
-          <h1>USER DASHBOARD</h1>
+          <div className="hero-section">
+            <h1>
+              Welcome Back,{" "}
+              {user.firstName || "Hero"} 👋
+            </h1>
+
+            <p>
+              You've helped save{" "}
+              <strong>
+                {stats.livesSaved}
+              </strong>{" "}
+              lives through ComeUnity.
+            </p>
+          </div>
+
+                    {/* QUICK ACTIONS */}
+
+          <h2 className="section-title">
+            Quick Actions
+          </h2>
 
           <div className="dashboard-grid">
-
             <button
               className="dash-btn"
-              onClick={() => navigate("/food-donation")}
+              onClick={() =>
+                navigate("/food-donation")
+              }
             >
-              🍱 Food Donations
+              <span>🍱</span>
+
+              <h3>Food Hub</h3>
+
+              <p>Donate meals</p>
             </button>
 
             <button
               className="dash-btn"
-              onClick={() => navigate("/blood-network")}
+              onClick={() =>
+                navigate("/blood-network")
+              }
             >
-              🩸 Blood Network
+              <span>🩸</span>
+
+              <h3>Blood Network</h3>
+
+              <p>Save lives</p>
             </button>
 
             <button
               className="dash-btn"
-              onClick={() => navigate("/volunteer")}
+              onClick={() =>
+                navigate("/volunteer")
+              }
             >
-              🤝 Volunteer Hub
+              <span>🤝</span>
+
+              <h3>Volunteer Hub</h3>
+
+              <p>Help others</p>
             </button>
 
             <button
               className="dash-btn"
-              onClick={() => navigate("/ai-assistant")}
+              onClick={() =>
+                navigate("/ai-assistant")
+              }
             >
-              🤖 AI Assistant
-            </button>
+              <span>🤖</span>
 
+              <h3>AI Assistant</h3>
+
+              <p>Ask anything</p>
+            </button>
           </div>
+
+
+          {/* STATS */}
+
+          <div className="stats-row">
+            <div className="stat-card">
+              <h2>
+                {stats.foodDonations}
+              </h2>
+
+              <p>Food Donations</p>
+            </div>
+
+            <div className="stat-card">
+              <h2>
+                {stats.bloodDonations}
+              </h2>
+
+              <p>Blood Donations</p>
+            </div>
+
+            <div className="stat-card">
+              <h2>
+                {stats.livesSaved}
+              </h2>
+
+              <p>Lives Saved</p>
+            </div>
+          </div>
+
+
+     
+          {/* PROFILE */}
 
           <button
             className="profile-btn"
-            onClick={() => navigate("/profile")}
+            onClick={() =>
+              navigate("/profile")
+            }
           >
-            👤 My Profile
+            👤 View My Profile
           </button>
-
         </div>
       </div>
     </>
   );
 }
-

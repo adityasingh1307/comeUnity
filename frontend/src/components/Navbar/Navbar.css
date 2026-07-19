@@ -28,7 +28,7 @@
 }
 
 .logo h2 {
-  font-size: 32px;
+  font-size: 20px;
 
   color: #24304d;
 }
@@ -144,4 +144,94 @@
   color: white;
   border-radius: 999px;
   box-shadow: 0 5px 15px rgba(108, 99, 255, 0.25);
+}
+.logout-btn {
+  border: none;
+  background: #ff5a5a;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+}
+
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    position: relative;
+    padding: 15px 20px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logo h2 {
+    font-size: 24px;
+  }
+
+  /* SHOW HAMBURGER */
+  .hamburger {
+    display: block;
+
+    background: none;
+    border: none;
+
+    font-size: 28px;
+
+    cursor: pointer;
+  }
+
+  /* HIDE MENU BY DEFAULT */
+  .nav-menu {
+    display: none !important;
+  }
+
+  /* SHOW WHEN OPEN */
+  .nav-menu.open {
+    display: flex !important;
+
+    flex-direction: column;
+
+    position: absolute;
+
+    top: 80px;
+    right: 20px;
+
+    width: 220px;
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    box-shadow:
+      0 10px 30px
+      rgba(0, 0, 0, 0.1);
+
+    gap: 15px;
+
+    z-index: 999;
+  }
+
+  .nav-menu.open li {
+    width: 100%;
+  }
+
+  .nav-menu.open a,
+  .nav-menu.open button {
+    width: 100%;
+    text-align: left;
+  }
 }

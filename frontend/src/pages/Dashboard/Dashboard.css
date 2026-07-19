@@ -1,40 +1,34 @@
-/* -------------------- Dashboard Page -------------------- */
+/* ---------------- Dashboard Page ---------------- */
 
 .dashboard-page {
   min-height: calc(100vh - 80px);
-  background: #f8f3ec;
+  padding: 120px 20px 40px;
+
+  background: linear-gradient(
+    135deg,
+    #fdfbfb,
+    #f3eefb
+  );
 
   display: flex;
   justify-content: center;
   align-items: center;
-
-  padding: 120px 20px 40px;
-
-  animation: bgMove 8s ease-in-out infinite alternate;
 }
 
-@keyframes bgMove {
-  from {
-    background: #f8f3ec;
-  }
-  to {
-    background: #f5efe7;
-  }
-}
-
-/* -------------------- Main Card -------------------- */
+/* ---------------- Main Card ---------------- */
 
 .dashboard-card {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
 
-  background: #ffffff;
+  background: white;
+
   border-radius: 30px;
+
   padding: 50px;
 
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-
-  text-align: center;
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.1);
 
   animation: fadeUp 0.8s ease;
 }
@@ -42,7 +36,7 @@
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
   }
 
   to {
@@ -51,182 +45,218 @@
   }
 }
 
-/* -------------------- Heading -------------------- */
+/* ---------------- Hero Section ---------------- */
 
-.dashboard-card h1 {
-  font-size: 45px;
-  color: #444;
+.hero-section {
+  text-align: center;
+
   margin-bottom: 50px;
-  font-weight: bold;
-  letter-spacing: 1px;
-
-  animation: slideDown 0.7s ease;
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
+.hero-section h1 {
+  font-size: 32px;
+  color: #333;
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  margin-bottom: 10px;
 }
 
-/* -------------------- Grid -------------------- */
+.hero-section p {
+  font-size: 20px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.hero-section strong {
+  color: #b26ef3;
+}
+
+/* ---------------- Stats ---------------- */
+
+.stats-row {
+  display: grid;
+
+  grid-template-columns: repeat(
+    3,
+    1fr
+  );
+
+  gap: 25px;
+
+  margin-bottom: 50px;
+}
+
+.stat-card {
+  background: #faf7ff;
+
+  border-radius: 25px;
+
+  padding: 20;
+
+  text-align: center;
+
+  box-shadow:
+    0 8px 20px rgba(
+      178,
+      110,
+      243,
+      0.15
+    );
+
+  transition: 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+}
+
+.stat-card h2 {
+  font-size: 28px;
+
+  color: #b26ef3;
+
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  color: #666;
+
+  font-size: 18px;
+}
+
+/* ---------------- Section Title ---------------- */
+
+.section-title {
+  font-size: 30px;
+
+  color: #444;
+
+  margin-bottom: 25px;
+
+  text-align: center;
+}
+
+/* ---------------- Quick Actions ---------------- */
 
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 35px;
-  margin-bottom: 40px;
+
+  grid-template-columns: repeat(
+    2,
+    1fr
+  );
+
+  gap: 25px;
+
+  margin-bottom: 50px;
 }
 
-/* -------------------- Dashboard Buttons -------------------- */
-
 .dash-btn {
-  background: #d89cf4;
-  color: #444;
+  border: none;
+
+  background: #ffffff;
+
+  border-radius: 25px;
+
+  padding: 35px;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 10px 25px rgba(
+      0,
+      0,
+      0,
+      0.08
+    );
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dash-btn:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 18px 35px rgba(
+      178,
+      110,
+      243,
+      0.25
+    );
+}
+
+.dash-btn span {
+  font-size: 55px;
+
+  margin-bottom: 15px;
+}
+
+.dash-btn h3 {
+  font-size: 28px;
+
+  color: #333;
+
+  margin-bottom: 8px;
+}
+
+.dash-btn p {
+  color: #777;
+
+  font-size: 16px;
+}
+
+
+/* ---------------- Profile Button ---------------- */
+
+.profile-btn {
+  width: 100%;
 
   border: none;
-  border-radius: 40px;
 
-  padding: 18px 25px;
+  background: #b26ef3;
 
-  font-size: 28px;
+  color: white;
+
+  padding: 18px;
+
+  border-radius: 20px;
+
+  font-size: 22px;
+
   font-weight: 700;
 
   cursor: pointer;
 
-  transition: all 0.3s ease;
-
-  box-shadow: 0 8px 20px rgba(216, 156, 244, 0.4);
-
-  opacity: 0;
-
-  animation: popUp 0.7s ease forwards,
-    glow 3s ease-in-out infinite;
-}
-
-/* Sequential Appearance */
-
-.dash-btn:nth-child(1) {
-  animation-delay: 0.1s, 1s;
-}
-
-.dash-btn:nth-child(2) {
-  animation-delay: 0.2s, 1s;
-}
-
-.dash-btn:nth-child(3) {
-  animation-delay: 0.3s, 1s;
-}
-
-.dash-btn:nth-child(4) {
-  animation-delay: 0.4s, 1s;
-}
-
-@keyframes popUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.9);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes glow {
-  0% {
-    box-shadow: 0 8px 20px rgba(216, 156, 244, 0.35);
-  }
-
-  50% {
-    box-shadow: 0 12px 28px rgba(216, 156, 244, 0.55);
-  }
-
-  100% {
-    box-shadow: 0 8px 20px rgba(216, 156, 244, 0.35);
-  }
-}
-
-/* Hover Effects */
-
-.dash-btn:hover {
-  background: #c978ef;
-
-  transform: translateY(-6px) scale(1.03);
-
-  box-shadow: 0 16px 32px rgba(216, 156, 244, 0.55);
-}
-
-.dash-btn:active {
-  transform: scale(0.97);
-}
-
-/* -------------------- Profile Button -------------------- */
-
-.profile-btn {
-  background: #d89cf4;
-  color: #444;
-
-  border: none;
-  border-radius: 40px;
-
-  padding: 18px 40px;
-
-  font-size: 30px;
-  font-weight: bold;
-
-  cursor: pointer;
-
-  transition: all 0.3s ease;
-
-  box-shadow: 0 8px 20px rgba(216, 156, 244, 0.4);
-
-  opacity: 0;
-
-  animation: popUp 0.7s ease forwards,
-    glow 3s ease-in-out infinite;
-
-  animation-delay: 0.5s, 1s;
+  transition: 0.3s;
 }
 
 .profile-btn:hover {
-  background: #c978ef;
+  background: #9a56df;
 
-  transform: translateY(-6px) scale(1.03);
-
-  box-shadow: 0 16px 32px rgba(216, 156, 244, 0.55);
+  transform: translateY(-4px);
 }
 
-.profile-btn:active {
-  transform: scale(0.97);
-}
-
-/* -------------------- Responsive -------------------- */
+/* ---------------- Responsive ---------------- */
 
 @media (max-width: 900px) {
-  .dashboard-card {
-    padding: 35px;
-  }
-
+  .stats-row,
   .dashboard-grid {
     grid-template-columns: 1fr;
   }
 
-  .dashboard-card h1 {
-    font-size: 34px;
+  .hero-section h1 {
+    font-size: 36px;
   }
 
-  .dash-btn,
-  .profile-btn {
-    font-size: 24px;
-    padding: 16px;
+  .dashboard-card {
+    padding: 35px;
+  }
+
+  .impact-card h3 {
+    font-size: 32px;
   }
 }
 
@@ -236,14 +266,23 @@
     border-radius: 20px;
   }
 
-  .dashboard-card h1 {
-    font-size: 28px;
-    margin-bottom: 30px;
+  .hero-section h1 {
+    font-size: 30px;
   }
 
-  .dash-btn,
+  .hero-section p {
+    font-size: 16px;
+  }
+
+  .stat-card h2 {
+    font-size: 32px;
+  }
+
+  .dash-btn h3 {
+    font-size: 22px;
+  }
+
   .profile-btn {
-    font-size: 20px;
-    border-radius: 25px;
+    font-size: 18px;
   }
 }

@@ -225,66 +225,80 @@ export default function MyContributions() {
           </div>
 
           {/* SUMMARY */}
+{/* SUMMARY */}
 
-          <div className="summary-section">
+<div className="summary-section">
 
-            <div className="summary-card">
-              <h2>⭐ Points Summary</h2>
+  <div className="summary-card">
+    <h2>⭐ Points Summary</h2>
 
-              <div className="summary-row">
-                <span>Donation #1</span>
-                <span>+100</span>
-              </div>
+    {donations.length > 0 ? (
+      donations.map((donation) => (
+        <div
+          className="summary-row"
+          key={donation.id}
+        >
+          <span>
+            Donation #{donation.id}
+          </span>
 
-              {donations.map((donation) => (
-  <div
-    className="summary-row"
-    key={donation.id}
-  >
-    <span>
-      Donation #{donation.id}
-    </span>
+          <span>
+            +{donation.points}
+          </span>
+        </div>
+      ))
+    ) : (
+      <div className="summary-row">
+        <span>No donations yet</span>
+        <span>0 pts</span>
+      </div>
+    )}
 
-    <span>
-      +{donation.points}
-    </span>
+    <hr />
+
+    <div className="summary-total">
+      <span>Total Points</span>
+      <span>{stats.points}</span>
+    </div>
   </div>
-))}
 
-              <div className="summary-row">
-                <span>Donation #3</span>
-                <span>+100</span>
-              </div>
+  <div className="next-badge-card">
+    <h2>🎖 Next Achievement</h2>
 
-              <hr />
+    <h3>
+      {stats.donations < 5
+        ? "Regular Donor"
+        : stats.donations < 10
+        ? "Blood Champion"
+        : "All Achievements Unlocked!"}
+    </h3>
 
-              <div className="summary-total">
-                <span>Total Points</span>
-                <span>{stats.points}</span>
-              </div>
-            </div>
+    <p>
+      {stats.donations < 5
+        ? `Donate ${
+            5 - stats.donations
+          } more time(s) to unlock this badge.`
+        : stats.donations < 10
+        ? `Donate ${
+            10 - stats.donations
+          } more time(s) to become a Blood Champion.`
+        : "You have unlocked every blood donation achievement!"}
+    </p>
 
-            <div className="next-badge-card">
-              <h2>🎖 Next Achievement</h2>
+    <div className="progress-bar small">
+      <div
+        className="progress-fill"
+        style={{
+          width: `${Math.min(
+            (goal.current / goal.target) * 100,
+            100
+          )}%`,
+        }}
+      />
+    </div>
+  </div>
 
-              <h3>Regular Donor</h3>
-
-              <p>
-                Donate blood 2 more times to unlock
-                this badge.
-              </p>
-
-              <div className="progress-bar small">
-                <div
-                  className="progress-fill"
-                  style={{
-                    width: `${(goal.current / goal.target) * 100}%`,
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-
+</div>
           {/* THANK YOU */}
 
           <div className="thankyou-card">

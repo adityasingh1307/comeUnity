@@ -44,39 +44,44 @@ export default function DonateBlood() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      const res = await axios.post(
-        "http://localhost:5000/api/blood/register",
-        formData
-      );
+  try {
+    const payload = {
+      ...formData,
+      userId: localStorage.getItem("userId"),
+    };
 
-      console.log(res.data);
+    const res = await axios.post(
+      "http://localhost:5000/api/blood/register",
+      payload
+    );
 
-      setShowPopup(true);
+    console.log(res.data);
 
-   
+    setShowPopup(true);
 
-      setFormData({
-        name: "",
-        bloodGroup: "",
-        dob: "",
-        phone: "",
-        email: "",
-        city: "",
-        state: "",
-        available: true,
-      });
-    } catch (error) {
-      console.log(error);
+    setFormData({
+      userId: localStorage.getItem("userId"),
+      name: "",
+      bloodGroup: "",
+      hospital: "ComeUnity Blood Camp",
+      dob: "",
+      phone: "",
+      email: "",
+      city: "",
+      state: "",
+      available: true,
+    });
+  } catch (error) {
+    console.log(error);
 
-      alert(
-        error.response?.data?.message ||
-          "Something went wrong!"
-      );
-    }
-  };
+    alert(
+      error.response?.data?.message ||
+        "Something went wrong!"
+    );
+  }
+};
 
   return (
     <>
