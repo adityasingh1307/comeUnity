@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Dashboard.css";
-
+const API = import.meta.env.VITE_API_URL;
 export default function Dashboard() {
   const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ export default function Dashboard() {
 
         // User Profile
         const userRes = await axios.get(
-          "http://localhost:5000/api/users/profile",
+          `${API}/api/users/profile`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -36,7 +36,7 @@ export default function Dashboard() {
 
         // Food Donations
         const foodRes = await axios.get(
-          "http://localhost:5000/api/food/my-donations",
+          `${API}/api/food/my-donations`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -46,7 +46,7 @@ export default function Dashboard() {
 
         // Blood Donations
         const bloodRes = await axios.get(
-          `http://localhost:5000/api/blood-contributions/${userId}`
+        `${API}/api/blood-contributions/${userId}`
         );
 
         setUser(userRes.data);

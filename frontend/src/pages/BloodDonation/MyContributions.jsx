@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import "./MyContributions.css";
-
+const API = import.meta.env.VITE_API_URL;
 export default function MyContributions() {
   const [loading, setLoading] = useState(true);
 
@@ -57,8 +57,8 @@ export default function MyContributions() {
       const userId = localStorage.getItem("userId");
 
       const response = await fetch(
-        `http://localhost:5000/api/blood-contributions/${userId}`
-      );
+  `${API}/api/blood-contributions/${userId}`
+);
 
       const data = await response.json();
 

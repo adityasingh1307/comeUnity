@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import "./MyDonations.css";
-
+const API = import.meta.env.VITE_API_URL;
 import {
   FaBoxOpen,
   FaCheckCircle,
@@ -27,7 +27,7 @@ function MyDonations() {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        "http://localhost:5000/api/food/my-donations",
+       `${API}/api/food/my-donations`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

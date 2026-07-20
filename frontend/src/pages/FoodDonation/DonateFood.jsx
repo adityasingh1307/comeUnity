@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+const API = import.meta.env.VITE_API_URL;
 const DonateFood = () => {
   const navigate = useNavigate();
 
@@ -41,7 +41,7 @@ const DonateFood = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        "http://localhost:5000/api/food/create",
+        `${API}/api/food/create`,
         formData,
         {
           headers: {

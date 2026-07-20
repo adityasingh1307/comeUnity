@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-
+const API = import.meta.env.VITE_API_URL;
 import {
   FaUser,
   FaEnvelope,
@@ -59,10 +59,10 @@ const [showSuccessModal, setShowSuccessModal] =
         return;
       }
 
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
-        formData
-      );
+     const response = await axios.post(
+  `${API}/api/auth/register`,
+  formData
+);
 
       setShowSuccessModal(true);
     } catch (error) {

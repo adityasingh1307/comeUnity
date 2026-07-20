@@ -3,7 +3,7 @@ import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
 import "./DonateBlood.css";
 import { useNavigate } from "react-router-dom";
-
+const API = import.meta.env.VITE_API_URL;
 export default function DonateBlood() {
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ export default function DonateBlood() {
     };
 
     const res = await axios.post(
-      "http://localhost:5000/api/blood/register",
+     `${API}/api/blood/register`,
       payload
     );
 

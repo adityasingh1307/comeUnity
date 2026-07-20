@@ -2,7 +2,7 @@ import "./AvailableFood.css";
 import Navbar from "../../components/Navbar/Navbar";
 import { useState } from "react";
 import axios from "axios";
-
+const API = import.meta.env.VITE_API_URL;
 const AvailableFood = () => {
   const [foods, setFoods] = useState([]);
   const [city, setCity] = useState("");
@@ -16,9 +16,10 @@ const AvailableFood = () => {
       setLoading(true);
       setSearched(true);
 
+      
       const response = await axios.get(
-        `http://localhost:5000/api/food/available?city=${city}&foodType=${foodType}`
-      );
+  `${API}/api/food/available?city=${city}&foodType=${foodType}`
+);
 
       setFoods(response.data.foods);
 

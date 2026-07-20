@@ -6,7 +6,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import LoginForm from "../../components/LoginForm/LoginForm";
 
 import "./Login.css";
-
+const API = import.meta.env.VITE_API_URL;
 export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -17,7 +17,7 @@ export default function Login() {
  const handleLogin = async () => {
   try {
     const response = await axios.post(
-      "http://localhost:5000/api/auth/login",
+      `${API}/api/auth/login`,
       {
         email,
         password,

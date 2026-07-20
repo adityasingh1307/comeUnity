@@ -2,7 +2,7 @@ import "./NearbyNGOs.css";
 import Navbar from "../../components/Navbar/Navbar";
 import axios from "axios";
 import { useState } from "react";
-
+const API = import.meta.env.VITE_API_URL;
 function NearbyNGOs() {
   const [city, setCity] = useState("");
   const [loading, setLoading] =
@@ -23,7 +23,7 @@ function NearbyNGOs() {
 
       const response =
         await axios.get(
-          `http://localhost:5000/api/ngos/${city}`
+         `${API}/api/ngos/${city}`
         );
 
       setNgos(response.data.ngos);

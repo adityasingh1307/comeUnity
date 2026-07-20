@@ -11,7 +11,7 @@ import {
   FaEnvelope,
   FaTint,
 } from "react-icons/fa";
-
+const API = import.meta.env.VITE_API_URL;
 export default function Profile() {
   const [user, setUser] = useState(null);
 
@@ -49,7 +49,7 @@ const fetchProfile = async () => {
 
     // Fetch user profile
     const response = await axios.get(
-      "http://localhost:5000/api/users/profile",
+      `${API}/api/users/profile`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -62,7 +62,7 @@ const fetchProfile = async () => {
     // Fetch blood contribution stats
     const bloodResponse =
       await axios.get(
-        `http://localhost:5000/api/blood-contributions/${userId}`
+        `${API}/api/blood-contributions/${userId}`
       );
 
     setStats({
@@ -86,7 +86,7 @@ const fetchProfile = async () => {
           );
 
         await axios.put(
-          "http://localhost:5000/api/users/profile",
+          `${API}/api/users/profile`,
           formData,
           {
             headers: {

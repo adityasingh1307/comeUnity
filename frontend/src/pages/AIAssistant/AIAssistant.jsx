@@ -3,7 +3,7 @@ import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
 import "./AIAssistant.css";
 import { Navigate } from "react-router-dom";
-
+const API = import.meta.env.VITE_API_URL;
 
 export default function AIAssistant() {
   const token = localStorage.getItem("token");
@@ -46,7 +46,7 @@ if (!token) {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/ai",
+         `${API}/api/ai`,
         {
           message: currentInput,
         }

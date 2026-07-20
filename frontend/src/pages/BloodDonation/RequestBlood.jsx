@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
 import "./RequestBlood.css";
-
+const API = import.meta.env.VITE_API_URL;
 export default function RequestBlood() {
   const [bloodGroup, setBloodGroup] = useState("");
   const [city, setCity] = useState("");
@@ -22,7 +22,7 @@ export default function RequestBlood() {
 
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/blood/search",
+        `${API}/api/blood/search`,
         {
           params: {
             bloodGroup,
