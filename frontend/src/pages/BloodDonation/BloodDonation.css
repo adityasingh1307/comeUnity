@@ -158,15 +158,10 @@
 /* GRID */
 
 .blood-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      auto-fit,
-      minmax(260px, 1fr)
-    );
-
-  gap: 25px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-content: center;
 }
 
 /* BUTTONS */
@@ -247,9 +242,9 @@
 /* RESPONSIVE */
 
 @media (max-width: 768px) {
-  .blood-card {
-    padding: 30px;
-  }
+    .blood-grid {
+        grid-template-columns: 1fr;
+    }
 
   .blood-card h1 {
     font-size: 2.5rem;
